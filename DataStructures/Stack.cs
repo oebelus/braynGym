@@ -1,11 +1,9 @@
-using System;
-
 namespace DataStructures
 {
-    class Stack
+    class Stackz<T>
     {
         static int MAX = 1000;
-        int[] stack = new int[MAX];
+        T[] stack = new T[MAX];
         int topIndex;
         public void PrintValues()
         {
@@ -21,7 +19,7 @@ namespace DataStructures
                 }
             }
         }
-        public bool Push(int val)
+        public bool Push(T val)
         {
             if (topIndex >= MAX)
             {
@@ -42,35 +40,35 @@ namespace DataStructures
         {
             topIndex = 0;
         }
-        public int Pop()
+        public T? Pop()
         {
             if (topIndex < 0)
             {
                 Console.WriteLine("Stack Underflow");
-                return 0;
+                return default(T);
             }
             else
             {
                 return stack[topIndex--];
             }
         }
-        public int Peek()
+        public T? Peek()
         {
             if (topIndex <= 0)
             {
                 Console.WriteLine("Stack Underflow");
-                return 0;
+                return default(T);
             }
             else
             {
                 return stack[topIndex];
             }
         }
-        public bool Contains(int val)
+        public bool Contains(T val)
         {
             for (int i = 0; i < topIndex; i++)
             {
-                if (stack[i] == val)
+                if (EqualityComparer<T>.Default.Equals(stack[i], val))
                 {
                     return true;
                 }
