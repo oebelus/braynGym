@@ -1,6 +1,6 @@
 namespace DataStructures
 {
-    class Stackz<T>
+    class Stacksz<T>
     {
         static int MAX = 1000;
         T[] stack = new T[MAX];
