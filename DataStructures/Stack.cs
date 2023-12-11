@@ -13,7 +13,7 @@ namespace DataStructures
             }
             else
             {
-                for (int i = 0; i < topIndex; i++)
+                for (int i = topIndex - 1; i >= 0; i--)
                 {
                     Console.WriteLine(stack[i]);
                 }
