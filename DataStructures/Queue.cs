@@ -3,46 +3,47 @@ namespace DataStructures
     internal class Queuez<T>
     {
         static int MAX = 1000;
-        int back;
-        int front = 0;
+        int back, front, count;
         T[] queue = new T[MAX];
 
         public void PrintValues()
         {
-            for (int i = front; i < back; i++)
+            for (int i = 0; i < count; i++)
             {
                 Console.WriteLine(queue[i]);
             }
         }
         public void Enqueue(T val)
         {
-            queue[back++] = val;
+            if (count < MAX)
+            {
+                queue[back] = val;
+                back = (back + 1) % MAX;
+                count++;
+            } else
+            {
+                throw new InsufficientMemoryException();
+            }
         }
         public T? Dequeue()
         {
-            T first;
-            if (back < front)
+            if (count > 0)
             {
-                return default(T?);
+                T first = queue[front];
+                front = (front + 1) % MAX;
+                count--;
+                return first;
             }
-            else
-            {
-                first = queue[front];
-                front++;
-            }
-            return first;
+            return default;
         }
-        public void Count()
-        {
-            Console.WriteLine(back < front ? 0 : back - front);
-        }
+        public int Count => count;
         public void Clear()
         {
-            back = 0;
+            back = 0;  front = 0; count = 0;
         }
         public bool Contains(T val)
         {
-            for (int i = front; i < back; i++)
+            for (int i = front; i != back; i = (i + 1) % MAX)
             {
                 if (EqualityComparer<T>.Default.Equals(queue[i], val))
                 {
@@ -53,11 +54,8 @@ namespace DataStructures
         }
         public T? Peek()
         {
-            return back < front ? default(T) : queue[front];
+            return count == 0 ? default(T) : queue[front];
         }
-        public bool isEmpty()
-        {
-            return back <= front;
-        }
+        public bool isEmpty => count == 0;
     }
 }
