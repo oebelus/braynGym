@@ -9,7 +9,6 @@ class PriorityQueue<T> {
   }
   enqueue(val:[string|number, number]) {
     if (this.count < this.MAX) {
-        var arr:Array<number> = []
         this.queue[this.back] = val;
         this.back = (this.back + 1) % this.MAX
         this.count++
