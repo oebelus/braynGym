@@ -1,11 +1,10 @@
 class CircularQueue {
   constructor(size) {
 
-    // Initialization 
     this.queue = [];
     this.read = 0;
     this.write = 0;
-    this.max = size - 1;
+    this.max = size;
 
     while (size > 0) {
       this.queue.push(null);
@@ -14,39 +13,44 @@ class CircularQueue {
   }
 
   print() {
-    return this.queue;
+    console.log(this.queue);
   }
 
   enqueue(item) {
-
-    if (this.write >= this.max + 1 + this.read) { // Check if the queue is full 
-      return null
-    } 
-
-    this.queue[this.write % (this.max + 1)] = item
-    this.write ++
-    return item
-
+    // Only change code below this line
+    if (this.queue[this.write] === null && this.write >= this.read) {
+      this.queue[this.write] = item
+      this.write = (this.write + 1) % this.max
+      return item
+    }
+    return null
+    // Only change code above this line
   }
 
   dequeue() {
-
-    if (this.read >= this.write) { // Check if the queue is empty; 
-      return null
-    };
-       const item = this.queue[this.read % (this.max + 1)]
-       this.queue[this.read % (this.max + 1)] = null
-       this.read = this.read + 1
-       return item // Item is read - 1 positioned now
+    // Only change code below this line
+    if (this.queue[this.read] !== null) {
+      let item = this.queue[this.read]
+      this.queue[this.read] = null
+      this.read = (this.read + 1) % this.max
+      return item
     }
+    return null
+    // Only change code above this line
   }
+}
 
-let queue = new CircularQueue(5)
+let cqueue = new CircularQueue(5)
+cqueue.enqueue('a')
+cqueue.enqueue('b')
+cqueue.enqueue('c')
+cqueue.dequeue()
+cqueue.dequeue()
+cqueue.dequeue()
+cqueue.enqueue('d')
+cqueue.enqueue('e')
+cqueue.enqueue('f')
+cqueue.enqueue('a')
+cqueue.enqueue('f')
 
-queue.enqueue('A')
-queue.enqueue('B')
-queue.enqueue('C')
-queue.enqueue('D')
-queue.enqueue('E')
-
-queue.dequeue()
+cqueue.print()
