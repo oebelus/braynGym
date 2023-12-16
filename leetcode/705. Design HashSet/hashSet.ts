@@ -28,4 +28,8 @@ class MyHashSet {
   values(): number[] {
     return Object.values(this.dictionary)
   } 
+
+  size(): number {
+    return this.length
+  }
 }
