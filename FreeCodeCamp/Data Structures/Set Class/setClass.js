@@ -75,5 +75,14 @@ class Set {
   }
 }
 
+function checkSet() {
+  var aset = new Set([1, 2, 3, 'Taco', 'Cat', 'Awesome'])
+  
+  console.log(Array.from(aset));
+  return aset;
+}
+
+checkSet();
+
 
 
