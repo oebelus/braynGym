@@ -44,6 +44,16 @@ class Set {
     for (let b in setB.dictionary) aset.add(b)
     return aset
   }
+
+  intersection(set) {
+    const aSet = new Set()
+    for (let a in this.dictionary) {
+      for (let b in set.dictionary) {
+        if (a == b) aSet.add(a)
+      }
+    }
+    return aSet
+  }
 }
 
 
