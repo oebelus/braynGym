@@ -17,22 +17,39 @@ class Set {
 
   add(element) {
     if (!this.has(element)) {
-      this.dictionary[element] = element
-      return true
-    } return false
+      this.dictionary[element] = element;
+      this.length++;
+      return true;
+    }
+    return false;
   }
 
   remove(element) {
     if (this.has(element)) {
-      delete this.dictionary[element]
-      return true
-    } return false
+      delete this.dictionary[element];
+      this.length--;
+      return true;
+    }
+
+    return false;
   }
 
   size() {
-    return Object.keys(this.dictionary).length
+    return this.length
   }
-  
+
+  union(setB) {
+    let aset = new Set()
+    for (let a in this.dictionary) {
+      aset.add(a)
+    }
+    for (let b in setB.dictionary) {
+      if (!this.has(b)) {
+        aset.add(b)
+      }
+    }
+    return aset
+  }
 }
 
 
