@@ -66,6 +66,13 @@ class Set {
     }
     return aSet
   }
+
+  isSubsetOf(set) {
+    for (let b in this.dictionary) {
+      if (!set.has(b)) return false
+    }
+    return true
+  }
 }
 
 
