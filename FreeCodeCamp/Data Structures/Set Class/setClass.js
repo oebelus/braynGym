@@ -40,14 +40,8 @@ class Set {
 
   union(setB) {
     let aset = new Set()
-    for (let a in this.dictionary) {
-      aset.add(a)
-    }
-    for (let b in setB.dictionary) {
-      if (!this.has(b)) {
-        aset.add(b)
-      }
-    }
+    for (let a in this.dictionary) aset.add(a)
+    for (let b in setB.dictionary) aset.add(b)
     return aset
   }
 }
