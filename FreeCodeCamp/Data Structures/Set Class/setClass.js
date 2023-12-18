@@ -54,6 +54,18 @@ class Set {
     }
     return aSet
   }
+
+  difference(set) {
+    const aSet = new Set()
+    for (let a in this.dictionary) {
+      for (let b in set.dictionary) {
+        if (!set.has(a)) {
+          aSet.add(a)
+        }
+      }
+    }
+    return aSet
+  }
 }
 
 
