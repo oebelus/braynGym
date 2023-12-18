@@ -38,7 +38,7 @@ class Set {
     return this.length
   }
 
-  union(setB) {
+  union(set) {
     let aset = new Set()
     for (let a in this.dictionary) aset.add(a)
     for (let b in setB.dictionary) aset.add(b)
