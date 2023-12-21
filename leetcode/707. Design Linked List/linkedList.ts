@@ -11,7 +11,6 @@ class aNode<T> {
 class MyLinkedList<T> {
   length: number
   head?: aNode<T>
-  tail?: aNode<T>
 
   constructor() {
     this.length = 0
