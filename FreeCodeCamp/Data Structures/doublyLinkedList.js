@@ -6,7 +6,7 @@ var Node = function(data, prev) {
 var DoublyLinkedList = function() {
   this.head = null;
   this.tail = null;
-  // Only change code below this line
+  
   this.log = () => {
     let current = this.head
     let arr = []
@@ -56,7 +56,7 @@ var DoublyLinkedList = function() {
       }
     }
   }
-  // Only change code above this line
+  
 };
 
 let linked = new DoublyLinkedList()
