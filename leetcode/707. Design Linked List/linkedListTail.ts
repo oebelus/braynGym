@@ -54,17 +54,15 @@ class MyLinkedList<T> {
     let node = new aNode<T>(val)
     if (this.head === null) {
       this.head = this.tail = node
-      this.length++
     } else {
       node.next = this.head
       this.head = node
-      this.length++
     }
+    this.length++
   }
 
   addAtTail(val: T): void {
     let node = new aNode<T>(val)
-    this.length++
     if (this.head === undefined) this.head = this.tail = node
     else {
       let current: aNode<T> | undefined = this.head
@@ -74,6 +72,7 @@ class MyLinkedList<T> {
       current.next = node
       this.tail = node
     }
+    this.length++
   }
 
   addAtIndex(index: number, val: T): void {
@@ -82,11 +81,9 @@ class MyLinkedList<T> {
     if (index === 0) {
       node.next = this.head
       this.head = node
-      this.length++
     } 
     else if (index === this.length) {
       this.addAtTail(val)
-      this.length++
     }
     else {
       let current: aNode<T> | undefined = this.head
@@ -98,9 +95,9 @@ class MyLinkedList<T> {
       {
         node.next = current.next
         current.next = node
-        this.length++
       }
     }
+    this.length++
   }
 
   deleteAtIndex(index: number): void {
@@ -108,6 +105,9 @@ class MyLinkedList<T> {
     if (index === 0) {
       this.head = this.head?.next
       this.length--
+      if (this.length === 1) {
+        this.tail = this.head
+      }
     } else {
       let current: aNode<T> | undefined = this.head
       let count: number = 0
@@ -120,16 +120,14 @@ class MyLinkedList<T> {
         toDelete = current.next
         current.next = toDelete.next
         this.length--
+        if (current.next === undefined) {
+          this.tail = current
+        }
       }
     }
   }
+  
   size(): number {
     return this.length
   }
 }
-
-let linked = new MyLinkedList()
-linked.addAtHead(1)
-linked.addAtTail(3)
-linked.logAll()
-console.log(linked)
