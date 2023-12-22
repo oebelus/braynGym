@@ -15,7 +15,6 @@ class MyLinkedList<T> {
   constructor() {
     this.length = 0
     this.head = undefined
-    this.tail = undefined
   }
 
   logAll(): void {
