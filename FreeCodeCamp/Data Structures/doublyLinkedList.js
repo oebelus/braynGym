@@ -56,7 +56,6 @@ var DoublyLinkedList = function() {
       }
     }
   }
-  
 };
 
 let linked = new DoublyLinkedList()
