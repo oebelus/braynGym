@@ -1,4 +1,4 @@
-void insertionSort1(int n, int arr_count, int* arr) {
+void insertionSortOne(int n, int arr_count, int* arr) {
     int last = arr[arr_count - 1];
     for (int i = arr_count - 1; i >= 0; i--) {
         if (last < arr[i-1]) {
