@@ -16,4 +16,15 @@ public class Solution {
             nums[i] = array[i];
         }
     }
+
+    public void Rotatex(int[] nums, int k) {
+        int length = nums.Length;
+        var array = new int[length];
+        for (int i = 0; i < length; i++) {
+            array[i] = nums[(length - k%length + i)%length];
+        }
+        for (int i = 0; i < length; i++) {
+          nums[i] = array[i];
+        }
+    }
 }
