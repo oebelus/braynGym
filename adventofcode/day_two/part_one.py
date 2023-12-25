@@ -2,10 +2,7 @@ f = open("input.txt", "r")
 
 # 12 red cubes, 13 green cubes, and 14 blue cubes
 
-delimiters = [",", ";"]
-count = 0
 count_arr = []
-colors = ["red", "green", "blue"]
 for line in f:
     line = line.strip().split(" ")
     isPossible = True
@@ -21,6 +18,7 @@ for i in count_arr:
     i = i.rstrip(":")
     sum += int(i)
 print(sum)
+
 
 
 
