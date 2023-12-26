@@ -1,3 +1,5 @@
+# Not fast enough to pass the tests
+
 import math
 
 first = 1 
