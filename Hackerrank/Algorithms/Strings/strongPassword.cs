@@ -8,6 +8,6 @@ public static int minimumNumber(int n, string password)
     if (!password.Any(char.IsUpper)) count++;
     if (!password.Any(char.IsLower)) count++;
     if (!password.Any(c => !char.IsLetterOrDigit(c))) count++;
-    if (count + length < 6) return 6 - n;
-    else return count;
+    
+    return (count + length < 6) ? 6 - n: count;
 }
