@@ -33,17 +33,29 @@ class aTree<T> {
     }
     return null
   }
+  
   findMin(): T | null {
     if (!this.root) return null
     let curr: aNode<T> | undefined = this.root
     while (curr.left) curr = curr.left
     return curr.data
   }
+  
   finMax(): T | null {
     if (!this.root) return null
     let curr: aNode<T> | undefined = this.root
     while (curr.right) curr = curr.right
     return curr.data
+  }
+  
+  isPresent(val: T): boolean {
+    if (!this.root) return false
+    let curr: aNode<T> | undefined = this.root
+    while (curr && curr.data !== val) {
+      if (curr.data > val) curr = curr.left
+      else curr = curr.right
+    }
+    return !!curr
   }
 }
 
