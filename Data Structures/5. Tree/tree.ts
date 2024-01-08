@@ -33,6 +33,18 @@ class aTree<T> {
     }
     return null
   }
+  findMin(): T | null {
+    if (!this.root) return null
+    let curr: aNode<T> | undefined = this.root
+    while (curr.left) curr = curr.left
+    return curr.data
+  }
+  finMax(): T | null {
+    if (!this.root) return null
+    let curr: aNode<T> | undefined = this.root
+    while (curr.right) curr = curr.right
+    return curr.data
+  }
 }
 
 let tree = new aTree()
