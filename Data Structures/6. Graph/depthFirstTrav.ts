@@ -7,6 +7,7 @@ const graph: Record<string, (string|never)[]> = {
   f: []
 }
 
+// Iterative
 function depthFirstTrav(graph:Record<string, (string|never)[]>, source: string):void {
   const stack = [source]
   while (stack.length > 0) {
