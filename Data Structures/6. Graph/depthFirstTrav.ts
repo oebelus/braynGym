@@ -1,4 +1,4 @@
-const graph: Record<string, (string|never)[]> = {
+const graph: Record<string, string[]> = {
   a: ['b', 'c'],
   b: ['d'],
   c: ['e'],
