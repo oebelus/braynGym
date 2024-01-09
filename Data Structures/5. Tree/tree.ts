@@ -57,6 +57,29 @@ class aTree<T> {
     }
     return !!curr
   }
+  depthFirst(root=this.root): void {
+    let stack = [root]
+    while (stack.length > 0) {
+      let current = stack.pop()
+      if (current) {
+        console.log(current.data)
+        if (current.right) stack.push(current.right)
+        if (current.left) stack.push(current.left)
+      }
+    }
+  }
+
+  breadthFirst(root=this.root): void {
+    let queue = [root]
+    while (queue.length > 0) {
+      let current = queue.shift()
+      if (current) {
+        console.log(current.data)
+        if (current.left) queue.push(current.left)
+        if (current.right) queue.push(current.right)
+      }
+    }
+  }
 }
 
 let tree = new aTree()
