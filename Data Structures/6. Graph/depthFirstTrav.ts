@@ -20,4 +20,11 @@ function depthFirstTrav(graph:Record<string, (string|never)[]>, source: string):
   }
 }
 
+// Recursive 
+function ddepthFirstTrav(graph:Record<string, (string|never)[]>, source: string):void {
+  console.log(source)
+  for (let neighbour of graph[source])
+    bbreadthFirstTrav(graph, neighbour)
+}
+
 depthFirstTrav(graph, 'a') // acebdf
