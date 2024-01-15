@@ -55,6 +55,7 @@ class MyLinkedList<T> {
     if (this.head === null) {
       this.head = this.tail = node
     } else {
+      // More like appending the linked list to the new node ;) 
       node.next = this.head
       this.head = node
     }
