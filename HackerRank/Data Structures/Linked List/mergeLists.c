@@ -39,6 +39,5 @@ SinglyLinkedListNode* mergeLists(SinglyLinkedListNode* head1, SinglyLinkedListNo
         current = current->next;
         head2 = head2->next;
     }
-    current = linked->next;
     return linked->next;
 }
