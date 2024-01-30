@@ -1,6 +1,6 @@
 SinglyLinkedListNode* mergeLists(SinglyLinkedListNode* head1, SinglyLinkedListNode* head2) {
     SinglyLinkedListNode* linked = (struct SinglyLinkedListNode*)malloc(sizeof(struct SinglyLinkedListNode));
-    SinglyLinkedListNode* current = linked; // Points to the last node of Linked
+    SinglyLinkedListNode* current = linked; 
     linked->data = 0;
     linked->next = NULL;
     
@@ -20,24 +20,12 @@ SinglyLinkedListNode* mergeLists(SinglyLinkedListNode* head1, SinglyLinkedListNo
             head2 = head2->next;
         }
     }
-    while (head1) {
-        SinglyLinkedListNode* add = (struct SinglyLinkedListNode*)malloc(sizeof(struct SinglyLinkedListNode));
-        add->data = 0;
-        add->next = NULL;
-        add->data = head1->data;
-        current->next = add;
-        current = current->next;
-        head1 = head1->next;
+    if (head1 != NULL) {
+        current->next = head1;
     }
     
-    while (head2) {
-        SinglyLinkedListNode* add = (struct SinglyLinkedListNode*)malloc(sizeof(struct SinglyLinkedListNode));
-        add->data = 0;
-        add->next = NULL;
-        add->data = head2->data;
-        current->next = add;
-        current = current->next;
-        head2 = head2->next;
+    if (head2 != NULL) {
+        current->next = head2;
     }
     return linked->next;
 }
