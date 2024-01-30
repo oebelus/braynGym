@@ -20,12 +20,8 @@ SinglyLinkedListNode* mergeLists(SinglyLinkedListNode* head1, SinglyLinkedListNo
             head2 = head2->next;
         }
     }
-    if (head1 != NULL) {
-        current->next = head1;
-    }
-    
-    if (head2 != NULL) {
-        current->next = head2;
-    }
+    if (head1 != NULL) current->next = head1;
+    if (head2 != NULL) current->next = head2;
+
     return linked->next;
 }
