@@ -13,7 +13,7 @@ SinglyLinkedListNode* mergeLists(SinglyLinkedListNode* head1, SinglyLinkedListNo
             current->next = add;
             current = current->next;
             head1 = head1->next;
-        } else if (head1->data >= head2->data) {
+        } else (head1->data >= head2->data) {
             add->data = head2->data;
             current->next = add;
             current = current->next;
