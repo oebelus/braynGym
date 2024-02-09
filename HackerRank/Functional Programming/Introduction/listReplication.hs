@@ -2,7 +2,7 @@ repl :: Int -> Int -> [Int]
 repl n x =
     if n == 1
         then [x]
-        else x : repl (n-1) x
+    else x : repl (n-1) x
 
 f :: Int -> [Int] -> [Int]
 f n (x:xs) = 
