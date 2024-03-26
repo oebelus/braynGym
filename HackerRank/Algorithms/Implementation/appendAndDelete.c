@@ -14,16 +14,8 @@ char* appendAndDelete(char* s, char* t, int k) {
     if (lengthS > lengthT) {
         count += lengthS - lengthT;
         for (int i = 0; i < lengthS; i++) {
-            if (s[i] == t[i]) {
-                count += 0;
-            }
-            else {
+            if (s[i] != t[i]) {
                 count += lengthT - i;
-                while (t[i]) {
-                    count += 1;
-                    i++;
-                }
-                break;
             }
         }
     } else if (lengthS == lengthT) {
