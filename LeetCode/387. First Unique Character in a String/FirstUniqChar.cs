@@ -48,3 +48,14 @@ public int FirstUniqCharte(string s) {
     } 
     return -1;
 }
+
+// Solution 4, Array solution
+public int FirstUniqChar(string s) {
+    int[] charArr = new int[26]; 
+    int slength = s.Length;
+    for (int i = 0; i < slength; i++)
+        charArr[s[i] - 'a']++;
+    for (int i = 0; i < slength; i++)
+        if (charArr[s[i] - 'a'] == 1) return i;
+    return -1;
+}
