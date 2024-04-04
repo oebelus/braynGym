@@ -35,7 +35,7 @@ static int FirstUniqChart(string s) {
 }
 
 // Solution 3, Dictionary Solution
-public int FirstUniqChar(string s) {
+public int FirstUniqCharte(string s) {
     Dictionary<char, int> hashmap = [];
     int slength = s.Length;
     for (int i = 0; i < slength; i++) {
