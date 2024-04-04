@@ -18,7 +18,7 @@ static int FirstUniqChar(string s)
     return ans;
 }
 
-// Solution 2
+// Solution 2 O(n^2)
 static int FirstUniqChart(string s) {
     int slength = s.Length;
     for (int i = 0; i < slength; i++) {
@@ -34,7 +34,7 @@ static int FirstUniqChart(string s) {
     return -1;
 }
 
-// Solution 3, Dictionary Solution
+// Solution 3, Dictionary Solution O(n)
 public int FirstUniqCharte(string s) {
     Dictionary<char, int> hashmap = [];
     int slength = s.Length;
