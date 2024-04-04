@@ -33,3 +33,18 @@ static int FirstUniqChart(string s) {
     }
     return -1;
 }
+
+// Solution 3, Dictionary Solution
+public int FirstUniqChar(string s) {
+    Dictionary<char, int> hashmap = [];
+    int slength = s.Length;
+    for (int i = 0; i < slength; i++) {
+        if (hashmap.ContainsKey(s[i])) {
+            hashmap[s[i]] += 1;
+        } else hashmap[s[i]] = 0;
+    }
+    foreach (var (key, val) in hashmap) {
+        if (val == 0) return s.IndexOf(key);
+    } 
+    return -1;
+}
