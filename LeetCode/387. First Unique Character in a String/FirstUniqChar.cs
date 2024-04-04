@@ -1,3 +1,4 @@
+// Solution 1
 static int FirstUniqChar(string s) 
 {
     string alphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -15,4 +16,20 @@ static int FirstUniqChar(string s)
         } else ans = -1;
     }
     return ans;
+}
+
+// Solution 2
+static int FirstUniqChart(string s) {
+    int slength = s.Length;
+    for (int i = 0; i < slength; i++) {
+        char pointer = s[i];
+        int j = 0;
+        while (j < slength) {
+            if (pointer == s[j] && j != i) { 
+                break;
+            } else if (j == slength - 1) return i;
+            j++;
+        }
+    }
+    return -1;
 }
