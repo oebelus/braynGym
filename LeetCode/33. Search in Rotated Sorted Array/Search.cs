@@ -1,4 +1,33 @@
 public class Solution {
+
+  // THE GOOD SOLUTION:
+  public int Searchh(int[] nums, int target) {
+        int left = 0;
+        int right = nums.Length - 1;
+        int middle;
+        
+        while (left <= right) {
+            middle = (right + left) / 2;
+            if (nums[middle] == target) return middle;
+            if (nums[left] <= nums[middle]) {
+                if (nums[left] <= target && nums[middle] >= target) {
+                    right = middle - 1;
+                } else {
+                    left = middle + 1;
+                }
+            }
+            else {
+                if (nums[right] >= target && nums[middle] <= target) {
+                    left = middle + 1;
+                } else {
+                    right = middle - 1;
+                }
+            }
+        }
+        return -1;
+    }
+
+  // THE BAD SOLUTION: 
   public int Search(int[] nums, int target) {
       int length = nums.Length;
       int shift = GetShift(nums, length);
