@@ -3,20 +3,15 @@ public class Solution {
         int result = 0;
         
         int length = colors.Length;
-        int[] newColors = new int[(2*length)];
-        
-        for (int i = 0; i < length; i++) {
-            newColors[i] = newColors[i + length] = colors[i]; 
-        }
         
         int prev, current, next;
         int j = 0;
         
         while (j < length) {
             
-            prev = newColors[j];
-            current = newColors[j+1];
-            next = newColors[j+2];
+            prev = colors[j%length];
+            current = colors[(j+1)%length];
+            next = colors[(j+2)%length];
             
             result = prev != current && next != current? result + 1 : result;
             
