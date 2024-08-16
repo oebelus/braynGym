@@ -1,21 +1,19 @@
-using System.Collections.Generic;
-
-class Demo {
-    public static void Main(string[] args)
-    {
-        int[] nums = {2,7, 11, 15};
-        TwoSum(nums, 9);
-    }
-    static int[] TwoSum(int[] nums, int target) {
-        Dictionary <int, int> dictionary = new Dictionary<int, int>();
+public class Solution {
+    public int[] TwoSum(int[] nums, int target) {
         int length = nums.Length;
+        Dictionary<int, int> hash = [];
+
         for (int i = 0; i < length; i++) {
-            int num = target - nums[i];
-            if (dictionary.TryGetValue(num, out int index)) {
-                return new int[] {index, i};
+            int diff = target - nums[i];
+            if (hash.ContainsKey(nums[i])) {
+                return new int[] {hash[nums[i]], i};
             }
-            else dictionary[nums[i]] = i;
+            else {
+                if (!hash.ContainsKey(diff))
+                    hash.Add(diff, i);
+            }  
         }
-        return new int [2];
+
+        return new int[] {}; 
     }
 }
