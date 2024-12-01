@@ -47,7 +47,23 @@ fn main() -> io::Result<()> {
         distance += absolute(list_1[i] as i32 - list_2[i] as i32);
     }
 
+    let mut similarity = 0;
+
+    for i in 0..length {
+        let val = list_2[i];
+        let mut count = 0;
+
+        for j in 0..length {
+            if list_1[j] == val {
+                count += 1;
+            }
+        }
+
+        similarity += count * val;
+    }
+
     println!("{}", distance);
+    println!("{}", similarity);
 
     Ok(())
 }
