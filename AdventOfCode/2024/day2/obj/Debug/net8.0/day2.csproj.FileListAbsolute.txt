@@ -1,0 +1,14 @@
+C:\Users\imane\OneDrive\Desktop\New folder\day2\bin\Debug\net8.0\day2.exe
+C:\Users\imane\OneDrive\Desktop\New folder\day2\bin\Debug\net8.0\day2.deps.json
+C:\Users\imane\OneDrive\Desktop\New folder\day2\bin\Debug\net8.0\day2.runtimeconfig.json
+C:\Users\imane\OneDrive\Desktop\New folder\day2\bin\Debug\net8.0\day2.dll
+C:\Users\imane\OneDrive\Desktop\New folder\day2\bin\Debug\net8.0\day2.pdb
+C:\Users\imane\OneDrive\Desktop\New folder\day2\obj\Debug\net8.0\day2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\imane\OneDrive\Desktop\New folder\day2\obj\Debug\net8.0\day2.AssemblyInfoInputs.cache
+C:\Users\imane\OneDrive\Desktop\New folder\day2\obj\Debug\net8.0\day2.AssemblyInfo.cs
+C:\Users\imane\OneDrive\Desktop\New folder\day2\obj\Debug\net8.0\day2.csproj.CoreCompileInputs.cache
+C:\Users\imane\OneDrive\Desktop\New folder\day2\obj\Debug\net8.0\day2.dll
+C:\Users\imane\OneDrive\Desktop\New folder\day2\obj\Debug\net8.0\refint\day2.dll
+C:\Users\imane\OneDrive\Desktop\New folder\day2\obj\Debug\net8.0\day2.pdb
+C:\Users\imane\OneDrive\Desktop\New folder\day2\obj\Debug\net8.0\day2.genruntimeconfig.cache
+C:\Users\imane\OneDrive\Desktop\New folder\day2\obj\Debug\net8.0\ref\day2.dll
