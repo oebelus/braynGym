@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\imane\\OneDrive\\Desktop\\New folder\\day2\\day2.csproj",
+      "projectUniqueName": "C:\\Users\\imane\\Downloads\\Code\\braynGym\\AdventOfCode\\2024\\day2\\day2.csproj",
       "projectName": "day2",
-      "projectPath": "C:\\Users\\imane\\OneDrive\\Desktop\\New folder\\day2\\day2.csproj",
+      "projectPath": "C:\\Users\\imane\\Downloads\\Code\\braynGym\\AdventOfCode\\2024\\day2\\day2.csproj",
       "packagesPath": "C:\\Users\\imane\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\imane\\OneDrive\\Desktop\\New folder\\day2\\obj\\",
+      "outputPath": "C:\\Users\\imane\\Downloads\\Code\\braynGym\\AdventOfCode\\2024\\day2\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\imane\\AppData\\Roaming\\NuGet\\NuGet.Config",
