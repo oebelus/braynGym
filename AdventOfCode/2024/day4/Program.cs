@@ -68,7 +68,6 @@
     public static int FindA()
     {
         int count = 0;
-
         for (int i = 1; i < rows - 1; i++)
         {
             for (int j = 1; j < columns - 1; j++)
@@ -79,17 +78,14 @@
                 }
             }
         }
-
         return count;
     }
-
     public static bool FindCross(int i, int j)
     {
         char topLeft = matrix[i - 1][j - 1];
         char topRight = matrix[i - 1][j + 1];
         char bottomLeft = matrix[i + 1][j - 1];
         char bottomRight = matrix[i + 1][j + 1];
-
         if (((topLeft == 'M' && bottomRight == 'S') || (topLeft == 'S' && bottomRight == 'M')) &&
             ((topRight == 'M' && bottomLeft == 'S') || (topRight == 'S' && bottomLeft == 'M')))
         {
