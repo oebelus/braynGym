@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using System.Diagnostics;
 
 class BridgeRepair
 {
@@ -6,10 +7,23 @@ class BridgeRepair
 
     public static void Main()
     {
-        EvaluateExpression();
+        CallExpr();
+        for (int i = 0; i < 10; i++)
+        {
+            CallExpr();
+        }
     }
 
-    // Part 1
+    public static void CallExpr() {
+        Stopwatch stopWatch = new Stopwatch();
+        stopWatch.Start();
+        EvaluateExpression();
+        stopWatch.Stop();
+        TimeSpan ts = stopWatch.Elapsed;
+
+        Console.WriteLine($"Execution Time: {ts.TotalMilliseconds/1000}s");
+    }
+
     private static void EvaluateExpression()
     {
         var input = File.ReadAllLines("numbers.txt");
@@ -42,12 +56,15 @@ class BridgeRepair
 
         if (cache.ContainsKey(key)) return cache[key];
 
+        if (operands.Count < 2) throw new IndexOutOfRangeException("A minimum of 2 elements is expected.");
+
         List<BigInteger> result = [];
 
         if (operands.Count == 2)
         {
             result.Add(operands[0] + operands[1]);
             result.Add(operands[0] * operands[1]);
+            result.Add(BigInteger.Parse(operands[1] + "" + operands[0])); // for part 1 remove this line
         }
         else
         {
