@@ -8,20 +8,17 @@ class BridgeRepair
     public static void Main()
     {
         CallExpr();
-        for (int i = 0; i < 10; i++)
-        {
-            CallExpr();
-        }
     }
 
-    public static void CallExpr() {
+    public static void CallExpr()
+    {
         Stopwatch stopWatch = new Stopwatch();
         stopWatch.Start();
         EvaluateExpression();
         stopWatch.Stop();
         TimeSpan ts = stopWatch.Elapsed;
 
-        Console.WriteLine($"Execution Time: {ts.TotalMilliseconds/1000}s");
+        Console.WriteLine($"Execution Time: {ts.TotalMilliseconds / 1000}s");
     }
 
     private static void EvaluateExpression()
