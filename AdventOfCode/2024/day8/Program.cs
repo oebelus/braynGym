@@ -11,6 +11,8 @@
         Dictionary<char, List<List<int>>> positions = GetPositions();
 
         CountUnique(positions);
+
+        CountAntennas(positions);
     }
 
     private static void ParseInput()
@@ -66,11 +68,6 @@
             }
         }
 
-        // for (int i = 0; i < combinations.Count; i++)
-        // {
-        //     Console.WriteLine(@$"[{combinations[i][0][0]}, {combinations[i][0][1]}] - [{combinations[i][1][0]}, {combinations[i][1][1]}]");
-        // }
-
         return combinations;
     }
 
@@ -84,8 +81,6 @@
         {
             List<List<List<int>>> combinations = GetCombinations(val);
             int length = combinations.Count;
-
-            Console.WriteLine(key);
 
             for (int i = 0; i < length; i++)
             {
@@ -118,7 +113,61 @@
                     count++;
                 }
             }
-            Console.WriteLine();
+        }
+        Console.WriteLine(count);
+        return count;
+    }
+
+    // Part 2
+    private static int CountAntennas(Dictionary<char, List<List<int>>> positions)
+    {
+        int count = 0;
+        HashSet<string> set = [];
+
+        foreach (var (key, val) in positions)
+        {
+            List<List<List<int>>> combinations = GetCombinations(val);
+            int length = combinations.Count;
+
+            for (int i = 0; i < length; i++)
+            {
+
+                int x1 = combinations[i][0][0];
+                int y1 = combinations[i][0][1];
+                int x2 = combinations[i][1][0];
+                int y2 = combinations[i][1][1];
+
+                int dx = x2 - x1;
+                int dy = y2 - y1;
+
+                int px1 = x1, py1 = y1;
+
+                while (px1 < cols && px1 >= 0 && py1 < rows && py1 >= 0)
+                {
+                    if (!set.Contains($"{px1},{py1}"))
+                    {
+                        set.Add($"{px1},{py1}");
+                        count++;
+                    }
+
+                    px1 -= dx;
+                    py1 -= dy;
+                }
+
+                int px2 = x2, py2 = y2;
+
+                while (px2 < cols && px2 >= 0 && py2 < rows && py2 >= 0)
+                {
+                    if (!set.Contains($"{px2},{py2}"))
+                    {
+                        set.Add($"{px2},{py2}");
+                        count++;
+                    }
+
+                    px2 += dx;
+                    py2 += dy;
+                }
+            }
         }
         Console.WriteLine(count);
         return count;
