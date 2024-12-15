@@ -2,14 +2,14 @@
 
 class DiskFragmenter
 {
-    private static List<string> numbers = [];
+    private static List<int> numbers = [];
 
-    static void Main(string[] args)
+    static void Main()
     {
         ParseInput();
 
         CompactDisk();
-        BigInteger result = GetPositions();
+        long result = CheckSum();
         Console.WriteLine(result);
     }
 
@@ -19,8 +19,8 @@ class DiskFragmenter
 
         int length = split.Count;
 
-        string count = "0";
-        List<string> disk = [];
+        int count = 0;
+        List<int> disk = [];
 
         for (int i = 0; i < length; i++)
         {
@@ -34,13 +34,13 @@ class DiskFragmenter
                     disk.Add(count);
                 }
 
-                count = $"{int.Parse(count.ToString()) + 1}";
+                count++;
             }
             else
             {
                 for (int j = 0; j < num; j++)
                 {
-                    disk.Add(".");
+                    disk.Add(-1);
                 }
             }
         }
@@ -52,28 +52,27 @@ class DiskFragmenter
     {
         while (true)
         {
-            int rightmostBlockIndex = numbers.LastIndexOf(numbers.Last(x => x != "."));
+            int rightmostBlockIndex = numbers.LastIndexOf(numbers.Last(x => x != -1));
 
-            int leftmostDotIndex = numbers.IndexOf(".");
+            int leftmostDotIndex = numbers.IndexOf(-1);
 
             if (rightmostBlockIndex < leftmostDotIndex)
                 break;
 
             numbers[leftmostDotIndex] = numbers[rightmostBlockIndex];
-            numbers[rightmostBlockIndex] = ".";
+            numbers[rightmostBlockIndex] = -1;
         }
     }
 
-
-    private static BigInteger GetPositions()
+    // Part 1
+    private static long CheckSum()
     {
-        BigInteger result = 0;
+        long result = 0;
+
         for (int i = 0; i < numbers.Count; i++)
         {
-            if (numbers[i] != ".")
-            {
-                result += int.Parse(numbers[i]) * i;
-            }
+            if (numbers[i] != -1)
+                result += numbers[i] * i;
         }
         return result;
     }
