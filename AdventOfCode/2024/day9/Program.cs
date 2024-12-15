@@ -8,7 +8,8 @@ class DiskFragmenter
     {
         ParseInput();
 
-        CompactDisk();
+        //CompactDisk1();
+        CompactDisk2();
         long result = CheckSum();
         Console.WriteLine(result);
     }
@@ -48,7 +49,8 @@ class DiskFragmenter
         numbers = disk;
     }
 
-    private static void CompactDisk()
+    // Part 1
+    private static void CompactDisk1()
     {
         while (true)
         {
@@ -64,7 +66,43 @@ class DiskFragmenter
         }
     }
 
-    // Part 1
+    // Part 2
+    private static void CompactDisk2()
+    {
+        var fileIDs = numbers.Where(x => x != -1).Distinct().OrderByDescending(x => x).ToList();
+
+        foreach (var fileID in fileIDs)
+        {
+            int fileStart = numbers.IndexOf(fileID);
+            int fileEnd = fileStart;
+
+            while (fileEnd < numbers.Count && numbers[fileEnd] == fileID)
+                fileEnd++;
+
+            int fileSize = fileEnd - fileStart;
+
+            int targetStart = -1;
+
+            for (int i = 0; i < fileStart; i++)
+            {
+                if (numbers.Skip(i).Take(fileSize).All(x => x == -1))
+                {
+                    targetStart = i;
+                    break;
+                }
+            }
+
+            if (targetStart != -1)
+            {
+                for (int i = 0; i < fileSize; i++)
+                {
+                    numbers[targetStart + i] = fileID;
+                    numbers[fileStart + i] = -1;
+                }
+            }
+        }
+    }
+
     private static long CheckSum()
     {
         long result = 0;
